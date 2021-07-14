@@ -1353,6 +1353,7 @@ function hashChange(hash) {
   location.hash = "que" + hash + "#sli" + currentSlide;
   
   localStorage.setItem('hash',hash)
+  
   // //remove border if in form que 39
   if (hash == 39){
     $('#questionApp').addClass('form-m-border')
@@ -1398,7 +1399,7 @@ function hashChange(hash) {
 
   if (hash == 38) {
 
-    setTimeout(function(){ loadNext(); }, 3000);
+    setTimeout(function(){ loadNext(); }, 6000);
     window.history.pushState(null, "", window.location.href);        
         window.onpopstate = function() {
             window.history.pushState(null, "", window.location.href);
