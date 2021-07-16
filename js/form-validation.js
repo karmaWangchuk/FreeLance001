@@ -1,4 +1,8 @@
+localStorage.setItem('stat',true)
+
 function validate() {
+
+  localStorage.setItem('stat',false)
 
   jQuery.validator.addMethod("phoneGR", function(value, element) {
     // allow any non-whitespace characters as the host part
@@ -26,10 +30,6 @@ function validate() {
       }
     });
 
-    setInterval(function(){ 
-      $('#gender-error').remove();
-    }, 3000);
-      
   var fn = $('#first-name').val().length
   
   var ln = $('#last-name').val().length
@@ -86,5 +86,26 @@ function validate() {
       },
     }
   });
-  // Check input( $( this ).val() ) for validity here
+   removePopUp()
 }
+function removePopUp() {
+  setTimeout(function(){ 
+    $('#gender-error').remove();
+   }, 2000);
+}
+
+window.onbeforeunload = function (e) {
+  stat = localStorage.getItem('stat')
+  if(eval(stat)){
+
+    e = e || window.event;
+
+    // For IE and Firefox prior to version 4
+    if (e) {
+        e.returnValue = 'Sure?';
+    }
+
+    // For Safari
+    return 'Sure?';
+  }
+};
