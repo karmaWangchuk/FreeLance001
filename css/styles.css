@@ -1398,6 +1398,7 @@ span.item-text {
   .ht-35 .option-caption {
       padding: 9px 0!important;
   }
+  
   .option-text{
     letter-spacing: 0!important;
   }
@@ -2279,7 +2280,10 @@ b{
 }
 
 @media screen and (max-width: 580px){
-
+  
+  .fly-about.ht-38{
+    min-height: 375px
+  }
   .plz-angehoeriger.plz{
     margin: 1px auto auto 10px !important
   }
