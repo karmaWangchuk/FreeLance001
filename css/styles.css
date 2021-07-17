@@ -1398,6 +1398,9 @@ span.item-text {
   .ht-35 .option-caption {
       padding: 9px 0!important;
   }
+  .option-text{
+    letter-spacing: 0!important;
+  }
 }
 
 @media (max-width: 768px) {
