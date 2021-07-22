@@ -1355,8 +1355,12 @@ let GlobalcurrentKey = 1;
 let moveOnly = false;
 let queNumber = 0;
 
+localStorage.setItem("scrollTop",document.documentElement.scrollTop)
+window.onscroll = function (e) {  
+  localStorage.setItem("scrollTop",document.documentElement.scrollTop)
+} 
 function hashChange(hash) {
-
+    
   location.hash = "que" + hash + "#sli" + currentSlide;
   
   localStorage.setItem('hash',hash)
@@ -1432,6 +1436,9 @@ function hashChange(hash) {
 }
 
 function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
+
+  window.scrollTo(0,localStorage.getItem("scrollTop"));
+
   if (slideR) {
     slideR = false;
     setTimeout(function () {
@@ -1529,6 +1536,7 @@ function changeLocation(nextKey) {
 }
 
 function loadPrevious() {
+  
   previousHistory.pop();
   let nextKey;
   if (!previousHistory.length) {
@@ -1775,10 +1783,10 @@ function textShadowing(s,p){
   $('.option-text'+s+'-'+p).css('textShadow','none')
   
 }
+
 $(window).resize(function() {
   var questionApp = document.getElementById('questionApp');
   hash = localStorage.getItem('hash')
   var height = $('.ht-'+hash).height();
   questionApp.style.height =  height+"px";
-
 });
