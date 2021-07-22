@@ -1090,6 +1090,7 @@ questionApp.style.width = qLength * 100 + "%";
 //questionApp.style.height =  "350px";
 
 function popFunc() {
+  window.scrollTo(0,localStorage.getItem("scrollTop"));
   for (let s in queObj) {
     newElem = ``;
     let currentElement = queObj[s];
@@ -1501,7 +1502,7 @@ function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
 }
 
 function loadNext() {
-
+  
   let nextKey = getNextKey();
 
   if (queObj[String(GlobalcurrentKey)].finish) {
@@ -1607,6 +1608,7 @@ let initiated = false;
 
 // instantiate the loadQue
 window.onload = function () {
+  
   popFunc();
 
   // var currentQue = location.hash.split('#');
@@ -1737,7 +1739,7 @@ $(document).ready(function(){
        event.preventDefault();
         //$(window).scrollTop(0,) ;
         //window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
-        $("html, body").animate({ scrollTop: 85 }, 1200);
+        // $("html, body").animate({ scrollTop: 85 }, 1200);
 
   });
 
