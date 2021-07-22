@@ -132,7 +132,7 @@ let queObj = {
       {
         title: "Rollstuhl erforderlich",
         image_name: "q3_3.png",
-        value: "Rollstuhl erforderlich",
+        value: "rollstuhl erforderlich",
         next: "7",
       },
       {
@@ -190,7 +190,7 @@ let queObj = {
       {
         title: "Ja, regelmäßig",
         image_name: "q_check.png",
-        value: "Ja, regelmäßig",
+        value: "ja, regelmäßig",
         next: "9",
       },
       {
@@ -216,7 +216,7 @@ let queObj = {
       {
         title: "Grundkenntnisse",
         image_name: "q4_1.png",
-        value: "Grundkenntnisse",
+        value: "grundkenntnisse",
         next: "10",
       },
       {
@@ -228,7 +228,7 @@ let queObj = {
       {
         title: "Gute Kenntnisse",
         image_name: "q4_3.png",
-        value: "Gute Kenntnisse",
+        value: "gute Kenntnisse",
         next: "10",
       },
       {
@@ -248,13 +248,13 @@ let queObj = {
       {
         title: "Gästezimmer ",
         image_name: "q_bett.png",
-        value: "Gästezimmer vorhanden ",
+        value: "gästezimmer vorhanden ",
         next: "11",
       },
       {
         title: "Wohnung ",
         image_name: "q7_2.png",
-        value: "Wohnung vorhanden ",
+        value: "wohnung vorhanden ",
         next: "11",
       },
       {
@@ -436,7 +436,7 @@ let queObj = {
       {
         title: "Rollstuhl erforderlich",
         image_name: "q3_3.png",
-        value: "Rollstuhl erforderlich",
+        value: "rollstuhl erforderlich",
         next: "18",
       },
       {
@@ -500,7 +500,7 @@ let queObj = {
       {
         title: "Ja, gelegentlich",
         image_name: "q_questionmarck.png",
-        value: "Ja, gelegentlich",
+        value: "ja, gelegentlich",
         next: "20",
       },
     ],
@@ -546,13 +546,13 @@ let queObj = {
       {
         title: "Gästezimmer ",
         image_name: "q_bett.png",
-        value: "Gästezimmer vorhanden",
+        value: "gästezimmer vorhanden",
         next: "22",
       },
       {
         title: "Wohnung ",
         image_name: "q7_2.png",
-        value: "Wohnung vorhanden",
+        value: "wohnung vorhanden",
         next: "22",
       },
       {
@@ -746,7 +746,7 @@ let queObj = {
       {
         title: "Rollstuhl erforderlich",
         image_name: "q3_3.png",
-        value: "Rollstuhl erforderlich",
+        value: "rollstuhl erforderlich",
         next: "29",
       },
       {
@@ -778,7 +778,7 @@ let queObj = {
       {
         title: "Rollstuhl erforderlich",
         image_name: "q3_3.png",
-        value: "Rollstuhl erforderlich",
+        value: "rollstuhl erforderlich",
         next: "30",
       },
       {
@@ -894,7 +894,7 @@ let queObj = {
       {
         title: "Grundkenntnisse",
         image_name: "q4_1.png",
-        value: "Grundkenntnisse",
+        value: "grundkenntnisse",
         next: "34",
       },
       {
@@ -926,13 +926,13 @@ let queObj = {
       {
         title: "Gästezimmer  ",
         image_name: "q_bett.png",
-        value: "Gästezimmer vorhanden",
+        value: "gästezimmer vorhanden",
         next: "35",
       },
       {
         title: "Wohnung ",
         image_name: "q7_2.png",
-        value: "Wohnung vorhanden",
+        value: "wohnung vorhanden",
         next: "35",
       },
       {
@@ -1357,6 +1357,13 @@ function hashChange(hash) {
   // //remove border if in form que 39
   if (hash == 39){
     $('#questionApp').addClass('form-m-border')
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function ()
+    {
+        history.go(1);
+    };
   }
 
   setTimeout(function(){ 
@@ -1603,6 +1610,7 @@ window.onload = function () {
   //console.log(theKey);
   inputEvent();
 };
+localStorage.setItem('i',1)
 
 window.onhashchange = function (e) {
   e.preventDefault();
@@ -1612,7 +1620,7 @@ window.onhashchange = function (e) {
   console.log(currentQue);
 
   if (initiated) loadQue(parseInt(currentQue[1].replace(/\D+/gim, "")), null, 500);
-
+  
   setCurrentSlide(parseInt(currentQue[2].replace(/\D+/gim, "")));
 
 };
@@ -1620,9 +1628,41 @@ window.onhashchange = function (e) {
 function setCurrentSlide(slide) {
   //var currentSli = parseInt(slide) 
   currentSlide = parseInt(slide);
+  
+  var pre = (currentSlide / maxProgressLength * 100) - localStorage.getItem('i') 
+  
+  var length = (currentSlide / maxProgressLength * 100) - pre
 
-  progressBar.style.width = currentSlide / maxProgressLength * 100 + "%"
+  setTimeout(function(){  
+    progressBar.style.width = length + "%" 
+    console.log((length)) 
+  },120)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/7)) + "%"  
+  },240)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/6)) + "%"  
+  },360)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/5)) + "%"  
+  },480)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/4)) + "%"  
+  },600)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/3)) + "%"  
+  },720)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/2)) + "%"  
+  },840)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+pre)+ "%"  
+    localStorage.setItem('i',length+pre)
+  },960)  
+
 }
+
+
 
 function movePosition(currentKey) {
   let theCurrentKey = 1;
