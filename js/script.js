@@ -216,7 +216,7 @@ let queObj = {
       {
         title: "Grundkenntnisse",
         image_name: "q4_1.png",
-        value: "grundkenntnisse",
+        value: "Grundkenntnisse",
         next: "10",
       },
       {
@@ -500,7 +500,7 @@ let queObj = {
       {
         title: "Ja, gelegentlich",
         image_name: "q_check_klein.png",
-        value: "Ja, gelegentlich",
+        value: "ja, gelegentlich",
         next: "20",
       },
       {
@@ -885,7 +885,7 @@ let queObj = {
         next: "33",
       },
       {
-        title: "Unklar",
+        title: "Noch unklar",
         image_name: "q_questionmarck.png",
         value: "noch unklar",
         next: "33",
@@ -917,7 +917,7 @@ let queObj = {
         next: "34",
       },
       {
-        title: "Unklar",
+        title: "Noch unklar",
         image_name: "q4_4.png",
         value: "noch unklar",
         next: "34",
