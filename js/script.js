@@ -13,7 +13,7 @@ let queObj = {
       {
         title: "Angehörigen",
         image_name: "q1_2.png",
-        value: "s Angehörige(r)/Bekannte(r)",
+        value: "Angehörige(r)/Bekannte(r)",
         next: "2",
       },
 
@@ -216,7 +216,7 @@ let queObj = {
       {
         title: "Grundkenntnisse",
         image_name: "q4_1.png",
-        value: "Grundkenntnisse",
+        value: "grundkenntnisse",
         next: "10",
       },
       {
@@ -499,10 +499,17 @@ let queObj = {
       },
       {
         title: "Ja, gelegentlich",
-        image_name: "q_questionmarck.png",
+        image_name: "q_check_klein.png",
         value: "Ja, gelegentlich",
         next: "20",
       },
+      {
+        title: "Noch unklar",
+        image_name: "q_questionmarck.png",
+        value: "noch unklar",
+        next: "20",
+      },
+      
     ],
     next: "20",
   },
@@ -761,7 +768,7 @@ let queObj = {
   29: {
     type: "regular",
     question: "Wie mobil ist Ihr <b>zweiter</b> pflegebedürftiger Angehöriger?",
-    name: "mobilitaetcB",
+    name: "mobilitaetcb",
     options: [
       {
         title: "Uneingeschränkt mobil",
@@ -857,7 +864,7 @@ let queObj = {
   32: {
     type: "regular",
     question: "Wird eine nächtliche Betreuung benötigt?",
-    name: "nachtC",
+    name: "nachtc",
     options: [
       {
         title: "Nein",
@@ -889,7 +896,7 @@ let queObj = {
   33: {
     type: "regular",
     question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
-    name: "spracheC",
+    name: "sprachec",
     options: [
       {
         title: "Grundkenntnisse",
@@ -947,7 +954,7 @@ let queObj = {
    35: {
     type: "regular",
     question: "Wie lange benötigen Sie die Betreuung?",
-    name: "dauerC",
+    name: "dauerc",
     options: [
       {
         title: "<span class = 'x-size'>4-6 Wochen<span>  ",
@@ -973,7 +980,7 @@ let queObj = {
   36: {
     type: "regular",
     question: "Wann soll die Betreuung beginnen?",
-    name: "zeitpunktC",
+    name: "zeitpunktc",
     options: [
       {
         title: "Schnellstmöglich",
