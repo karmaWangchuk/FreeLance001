@@ -26,7 +26,6 @@ function validate() {
       // Make sure the form is submitted to the destination defined
       // in the "action" attribute of the form when valid
       submitHandler: function(form) {
-        $('#form-submit-button').prop('disabled',true)
         form.submit();
       }
     });
