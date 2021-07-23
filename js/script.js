@@ -1090,7 +1090,6 @@ questionApp.style.width = qLength * 100 + "%";
 //questionApp.style.height =  "350px";
 
 function popFunc() {
-  window.scrollTo(0,localStorage.getItem("scrollTop"));
   for (let s in queObj) {
     newElem = ``;
     let currentElement = queObj[s];
@@ -1356,16 +1355,12 @@ let GlobalcurrentKey = 1;
 let moveOnly = false;
 let queNumber = 0;
 
-localStorage.setItem("scrollTop",document.documentElement.scrollTop)
-window.onscroll = function (e) {  
-  localStorage.setItem("scrollTop",document.documentElement.scrollTop)
-} 
 function hashChange(hash) {
     
   location.hash = "que" + hash + "#sli" + currentSlide;
   
   localStorage.setItem('hash',hash)
-  
+
   // //remove border if in form que 39
   if (hash == 39){
     $('#questionApp').addClass('form-m-border')
@@ -1382,8 +1377,7 @@ function hashChange(hash) {
     teee(hash)
     var height = $('.ht-'+hash).height();
     questionApp.style.height =  height+"px";
-   }, 550);
-
+  }, 380);
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1437,8 +1431,6 @@ function hashChange(hash) {
 }
 
 function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
-
-  window.scrollTo(0,localStorage.getItem("scrollTop"));
 
   if (slideR) {
     slideR = false;
