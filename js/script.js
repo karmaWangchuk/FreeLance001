@@ -1355,6 +1355,11 @@ let GlobalcurrentKey = 1;
 let moveOnly = false;
 let queNumber = 0;
 
+localStorage.setItem("scrollTop",document.documentElement.scrollTop)
+window.onscroll = function (e) {  
+  localStorage.setItem("scrollTop",document.documentElement.scrollTop)
+} 
+
 function hashChange(hash) {
     
   location.hash = "que" + hash + "#sli" + currentSlide;
@@ -1377,7 +1382,7 @@ function hashChange(hash) {
     teee(hash)
     var height = $('.ht-'+hash).height();
     questionApp.style.height =  height+"px";
-  }, 380);
+  }, 300);
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1431,6 +1436,8 @@ function hashChange(hash) {
 }
 
 function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
+  
+  window.scrollTo({top:localStorage.getItem("scrollTop"), behavior: 'smooth'});
 
   if (slideR) {
     slideR = false;
@@ -1601,6 +1608,7 @@ let initiated = false;
 // instantiate the loadQue
 window.onload = function () {
   
+  
   popFunc();
 
   // var currentQue = location.hash.split('#');
@@ -1637,37 +1645,12 @@ window.onhashchange = function (e) {
 function setCurrentSlide(slide) {
   //var currentSli = parseInt(slide) 
   currentSlide = parseInt(slide);
-  
-  var pre = (currentSlide / maxProgressLength * 100) - localStorage.getItem('i') 
-  
-  var length = (currentSlide / maxProgressLength * 100) - pre
+    
+  var length = (currentSlide / maxProgressLength * 100)
 
   setTimeout(function(){  
-    progressBar.style.width = length + "%" 
-    console.log((length)) 
-  },120)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/7)) + "%"  
-  },240)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/6)) + "%"  
-  },360)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/5)) + "%"  
-  },480)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/4)) + "%"  
-  },600)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/3)) + "%"  
-  },720)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/2)) + "%"  
-  },840)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+pre)+ "%"  
-    localStorage.setItem('i',length+pre)
-  },960)  
+    progressBar.style.width = length+ "%"  
+  },580)  
 
 }
 
@@ -1726,6 +1709,7 @@ function movePosition(currentKey) {
 
 
 $(document).ready(function(){
+
   // Add smooth scrolling to all links
   $(".anchor-link").on('click', function(event) {
        event.preventDefault();
@@ -1763,11 +1747,15 @@ function teee(hash) {
 
       var itemId = $(this).attr('id');
 
-      if (itemId == hash) {
-        $(this).addClass("test");
-      } else {
-        $(this).removeClass("test");
-      }
+      // if (itemId == hash) {
+      $(this).addClass("test");
+      // } 
+      
+      // else {
+      //   setInterval(function(){
+      //     $(this).removeClass("test");
+      //   },4000)
+      // }
       
   });
 }
