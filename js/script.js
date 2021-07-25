@@ -1099,7 +1099,7 @@ function popFunc() {
         Object.keys(queObj).indexOf(s) + 1
       }" class="fly-about ht-${
         Object.keys(queObj).indexOf(s) + 1
-      }" style="width: ${100 / qLength}%;">
+      } test" style="width: ${100 / qLength}%;">
           <div class="text-center question-title fieldset-title"><!--<span id="opt_${
             Object.keys(queObj).indexOf(s) + 1
           }"></span>--> ${currentElement.question}</div>`;
@@ -1382,7 +1382,7 @@ function hashChange(hash) {
     teee(hash)
     var height = $('.ht-'+hash).height();
     questionApp.style.height =  height+"px";
-  }, 300);
+  }, 420);
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1646,11 +1646,36 @@ function setCurrentSlide(slide) {
   //var currentSli = parseInt(slide) 
   currentSlide = parseInt(slide);
     
-  var length = (currentSlide / maxProgressLength * 100)
+  var pre = (currentSlide / maxProgressLength * 100) - localStorage.getItem('i') 
+
+  var length = (currentSlide / maxProgressLength * 100) - pre
 
   setTimeout(function(){  
-    progressBar.style.width = length+ "%"  
-  },580)  
+    progressBar.style.width = length + "%" 
+    console.log((length)) 
+  },120)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/7)) + "%"  
+  },240)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/6)) + "%"  
+  },360)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/5)) + "%"  
+  },480)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/4)) + "%"  
+  },600)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/3)) + "%"  
+  },720)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+(pre/2)) + "%"  
+  },840)  
+  setTimeout(function(){  
+    progressBar.style.width = (length+pre)+ "%"  
+    localStorage.setItem('i',length+pre)
+  },960)  
 
 }
 
@@ -1747,15 +1772,15 @@ function teee(hash) {
 
       var itemId = $(this).attr('id');
 
-      // if (itemId == hash) {
-      $(this).addClass("test");
-      // } 
+      if (itemId == hash) {
+      // $(this).addClass("test");
+      } 
       
-      // else {
-      //   setInterval(function(){
-      //     $(this).removeClass("test");
-      //   },4000)
-      // }
+      else {
+        setInterval(function(){
+          $(this).removeClass("test");
+        },4000)
+      }
       
   });
 }
