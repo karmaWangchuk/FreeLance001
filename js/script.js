@@ -1,24 +1,24 @@
 let queObj = {
     1: {
-    type: "regular",
-    question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
-    name: "fuerwen",
-    options: [
-      {
-        title: "Mich selbst",
-        image_name: "q1_1.png",
-        value: "selber",
-        next: "2",
-      },
-      {
-        title: "Angehörigen",
-        image_name: "q1_2.png",
-        value: "Angehörige(r)/Bekannte(r)",
-        next: "2",
-      },
+    // type: "regular",
+    // question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
+    // name: "fuerwen",
+    // options: [
+    //   {
+    //     title: "Mich selbst",
+    //     image_name: "q1_1.png",
+    //     value: "selber",
+    //     next: "2",
+    //   },
+    //   {
+    //     title: "Angehörigen",
+    //     image_name: "q1_2.png",
+    //     value: "Angehörige(r)/Bekannte(r)",
+    //     next: "2",
+    //   },
 
-    ],
-    next: "2",
+    // ],
+    // next: "2",
   },
   2: {
     type: "regular",
@@ -1091,6 +1091,7 @@ questionApp.style.width = qLength * 100 + "%";
 
 function popFunc() {
   for (let s in queObj) {
+
     newElem = ``;
     let currentElement = queObj[s];
     
@@ -1346,6 +1347,8 @@ Unser Service:<br>
     }
     questionApp.innerHTML += newElem;
     newElem = ``;
+    var height = $('.ht-'+1).height();
+  questionApp.style.height =  height+"px";
   }
   document.body.style.display = ''
 }
@@ -1380,9 +1383,9 @@ function hashChange(hash) {
 
   setTimeout(function(){ 
     teee(hash)
-    var height = $('.ht-'+hash).height();
-    questionApp.style.height =  height+"px";
-  }, 420);
+  }, 550);
+  var height = $('.ht-'+hash).height();
+  questionApp.style.height =  height+"px";
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1646,37 +1649,8 @@ function setCurrentSlide(slide) {
   //var currentSli = parseInt(slide) 
   currentSlide = parseInt(slide);
     
-  var pre = (currentSlide / maxProgressLength * 100) - localStorage.getItem('i') 
-
-  var length = (currentSlide / maxProgressLength * 100) - pre
-
-  setTimeout(function(){  
-    progressBar.style.width = length + "%" 
-    console.log((length)) 
-  },120)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/7)) + "%"  
-  },240)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/6)) + "%"  
-  },360)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/5)) + "%"  
-  },480)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/4)) + "%"  
-  },600)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/3)) + "%"  
-  },720)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+(pre/2)) + "%"  
-  },840)  
-  setTimeout(function(){  
-    progressBar.style.width = (length+pre)+ "%"  
-    localStorage.setItem('i',length+pre)
-  },960)  
-
+  progressBar.style.width = currentSlide / maxProgressLength * 100 + "%"  
+  
 }
 
 
