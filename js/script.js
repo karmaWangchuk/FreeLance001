@@ -1087,7 +1087,7 @@ let previousHistory = [];
 let qLength = Object.keys(queObj).length;
 let maxProgressLength = 19;
 let currentSlide = 1;
-
+var stat = true
 
 questionApp.style.width = qLength * 100 + "%";
 //questionApp.style.height =  "350px";
@@ -1518,8 +1518,8 @@ function loadNext() {
   if (!nextKey) {
     return;
   }
-
-  currentSlide = parseInt(currentSlide + 1);
+  if (stat) currentSlide = parseInt(currentSlide + 1);
+  stat = false
   location.hash = "que" + nextKey + "#sli" + currentSlide;
   console.log(location.hash);
 
@@ -1536,7 +1536,8 @@ $( document ).ready(function() {
 
 function changeLocation(nextKey) {
   console.log(nextKey);
-  currentSlide = parseInt(currentSlide + 1);
+  if (stat) currentSlide = parseInt(currentSlide + 1);
+  stat = false
   location.hash = nextKey + "#sli" + currentSlide;
 }
 
@@ -1717,7 +1718,7 @@ $(document).ready(function(){
   // Add smooth scrolling to all links
   $(".anchor-link").on('click', function(event) {
        event.preventDefault();
-        // $(window).scrollTop(0,) ;
+        // $(windinow).scrollTop(0,) ;
         window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
         $("html, body").animate({ scrollTop: 85 }, 1200);
 
@@ -1761,6 +1762,7 @@ function teee(hash) {
 
       if (itemId == 39){
         $('.fake').remove()
+        stat = true
       }
       
   });
