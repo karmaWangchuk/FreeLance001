@@ -1,24 +1,27 @@
+
+$('.fake').css('display','')
+
 let queObj = {
     1: {
-    // type: "regular",
-    // question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
-    // name: "fuerwen",
-    // options: [
-    //   {
-    //     title: "Mich selbst",
-    //     image_name: "q1_1.png",
-    //     value: "selber",
-    //     next: "2",
-    //   },
-    //   {
-    //     title: "Angehörigen",
-    //     image_name: "q1_2.png",
-    //     value: "Angehörige(r)/Bekannte(r)",
-    //     next: "2",
-    //   },
+    type: "regular",
+    question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
+    name: "fuerwen",
+    options: [
+      {
+        title: "Mich selbst",
+        image_name: "q1_1.png",
+        value: "selber",
+        next: "2",
+      },
+      {
+        title: "Angehörigen",
+        image_name: "q1_2.png",
+        value: "Angehörige(r)/Bekannte(r)",
+        next: "2",
+      },
 
-    // ],
-    // next: "2",
+    ],
+    next: "2",
   },
   2: {
     type: "regular",
@@ -1091,11 +1094,11 @@ questionApp.style.width = qLength * 100 + "%";
 
 function popFunc() {
   for (let s in queObj) {
-
     newElem = ``;
     let currentElement = queObj[s];
     
     if (currentElement.type) {
+
       newElem += `<div id="${
         Object.keys(queObj).indexOf(s) + 1
       }" class="fly-about ht-${
@@ -1348,7 +1351,7 @@ Unser Service:<br>
     questionApp.innerHTML += newElem;
     newElem = ``;
     var height = $('.ht-'+1).height();
-  questionApp.style.height =  height+"px";
+    questionApp.style.height =  height+"px";
   }
   document.body.style.display = ''
 }
@@ -1364,7 +1367,6 @@ window.onscroll = function (e) {
 } 
 
 function hashChange(hash) {
-    
   location.hash = "que" + hash + "#sli" + currentSlide;
   
   localStorage.setItem('hash',hash)
@@ -1383,9 +1385,9 @@ function hashChange(hash) {
 
   setTimeout(function(){ 
     teee(hash)
-  }, 550);
-  var height = $('.ht-'+hash).height();
-  questionApp.style.height =  height+"px";
+    var height = $('.ht-'+hash).height();
+    questionApp.style.height =  height+"px";
+    }, 550);
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1539,6 +1541,8 @@ function changeLocation(nextKey) {
 }
 
 function loadPrevious() {
+
+  // currentSlide = currentSlide - 1;
   
   previousHistory.pop();
   let nextKey;
@@ -1611,8 +1615,9 @@ let initiated = false;
 // instantiate the loadQue
 window.onload = function () {
   
-  
+  // $('.loadButton')
   popFunc();
+
 
   // var currentQue = location.hash.split('#');
 
@@ -1712,9 +1717,9 @@ $(document).ready(function(){
   // Add smooth scrolling to all links
   $(".anchor-link").on('click', function(event) {
        event.preventDefault();
-        //$(window).scrollTop(0,) ;
-        //window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
-        // $("html, body").animate({ scrollTop: 85 }, 1200);
+        // $(window).scrollTop(0,) ;
+        window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
+        $("html, body").animate({ scrollTop: 85 }, 1200);
 
   });
 
@@ -1747,13 +1752,15 @@ function teee(hash) {
       var itemId = $(this).attr('id');
 
       if (itemId == hash) {
-      // $(this).addClass("test");
+        $(this).addClass("test");
       } 
       
       else {
-        setInterval(function(){
           $(this).removeClass("test");
-        },4000)
+      }
+
+      if (itemId == 39){
+        $('.fake').remove()
       }
       
   });
