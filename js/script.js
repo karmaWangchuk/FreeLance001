@@ -1,4 +1,3 @@
-
 $('.fake').css('display','')
 
 let queObj = {
@@ -1762,6 +1761,7 @@ function teee(hash) {
 
       if (itemId == 39){
         $('.fake').remove()
+        $('.fieldset-wrapper').css('opacity','1')
         stat = true
       }
       
