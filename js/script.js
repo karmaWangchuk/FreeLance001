@@ -1421,7 +1421,7 @@ function hashChange(hash) {
 
   if (hash == 38) {
 
-    setTimeout(function(){ loadNext(); }, 5000);
+    setTimeout(function(){ loadNext(); }, 6000);
     window.history.pushState(null, "", window.location.href);        
         window.onpopstate = function() {
             window.history.pushState(null, "", window.location.href);
