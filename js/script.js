@@ -1,27 +1,26 @@
-
-$('.fake').css('display','')
+$('.fake').css('display','')  
 
 let queObj = {
     1: {
-    type: "regular",
-    question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
-    name: "fuerwen",
-    options: [
-      {
-        title: "Mich selbst",
-        image_name: "q1_1.png",
-        value: "selber",
-        next: "2",
-      },
-      {
-        title: "Angehörigen",
-        image_name: "q1_2.png",
-        value: "Angehörige(r)/Bekannte(r)",
-        next: "2",
-      },
+    // type: "regular",
+    // question: "Für wen suchen Sie eine<span class= 'break'> 24 Stunden Pflege?</span>",
+    // name: "fuerwen",
+    // options: [
+    //   {
+    //     title: "Mich selbst",
+    //     image_name: "q1_1.png",
+    //     value: "selber",
+    //     next: "2",
+    //   },
+    //   {
+    //     title: "Angehörigen",
+    //     image_name: "q1_2.png",
+    //     value: "Angehörige(r)/Bekannte(r)",
+    //     next: "2",
+    //   },
 
-    ],
-    next: "2",
+    // ],
+    // next: "2",
   },
   2: {
     type: "regular",
@@ -1077,6 +1076,7 @@ let queObj = {
 
 let slideR = true;
 let questionApp = document.querySelector("#questionApp");
+let questionAppJQ = $("#questionApp");
 let previousButton = document.querySelector("#previous");
 let spanInfo = document.querySelector("#spanInfo");
 let progressBar = document.getElementById("progress-contain");
@@ -1348,7 +1348,8 @@ Unser Service:<br>
       }
       newElem += `</div>`;
     }
-    questionApp.innerHTML += newElem;
+    questionAppJQ.append(newElem)
+     +newElem;
     newElem = ``;
     var height = $('.ht-'+1).height();
     questionApp.style.height =  height+"px";
@@ -1422,7 +1423,7 @@ function hashChange(hash) {
 
   if (hash == 38) {
 
-    setTimeout(function(){ loadNext(); }, 5000);
+    setTimeout(function(){ loadNext(); }, 6000);
     window.history.pushState(null, "", window.location.href);        
         window.onpopstate = function() {
             window.history.pushState(null, "", window.location.href);
@@ -1761,10 +1762,8 @@ function teee(hash) {
       }
 
       if (itemId == 39){
-        $('.fake').remove()
         stat = true
       }
-      
   });
 }
 

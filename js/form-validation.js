@@ -8,6 +8,11 @@ function validate() {
     // allow any non-whitespace characters as the host part
     return /^(((((((00|\+)[ \-\/]?)|0)[1-9][0-9]{1,4})[ \-\/]{0,3}?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-\/]?))[0-9]{1,7}([ \-\/]?[0-9]{1,5})?)$/.test( value );
   }, '');
+  jQuery.validator.addMethod("mailGR", function(value, element) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    // allow any non-whitespace characters as the host part
+    return value.match(mailformat)
+  }, '');
 
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"
@@ -77,6 +82,7 @@ function validate() {
       }, 
       email:{
         required: true,
+        mailGR: true,
         email: true,
         minlength: en
       },

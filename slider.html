@@ -21,8 +21,8 @@
 </head>
 
 <body
-	class="page-template-default page page-id-272 fusion-image-hovers fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-mobile-totop mobile-logo-pos-left layout-wide-mode fusion-top-header menu-text-align-center mobile-menu-design-modern fusion-show-pagination-text fusion-header-layout-v1 avada-responsive avada-footer-fx-none do-animate"
-	style="height: auto;">
+	class="page-template-default page page-id-272 fusion-image-hovers fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-mobile-totop mobile-logo-pos-left layout-wide-mode fusion-top-header menu-text-align-center mobile-menu-design-modern fusion-show-pagination-text fusion-header-layout-v1 avada-responsive avada-footer-fx-none do-animate fake"
+	style="height: auto; display:none">
 
 	<div id="wrapper" class="" style="height: auto;">
 
@@ -80,7 +80,7 @@
 															<form method="post" name="send-form"
 																action="https://pflegeauskunft24.de/wp-content/plugins/Handling_Form_Data/form_action/action.php"
 																id="questionApp">
-																<div id="1" class="fly-about ht-1 test fake" style="width: 2.5641025641025643%; display:none; pointer-events: none;">
+																<div id="1" class="fly-about ht-1 test" style="width: 2.5641025641025643%;">
 																	<div class="text-center question-title fieldset-title"><!--<span id="opt_1"></span>--> Für wen suchen Sie eine<span class="break"> 24 Stunden Pflege?</span></div> <div class="options responses-wrapper">
 																	  
 																	<div class="section_items option-responses  overflow-hidden" onclick="textShadowing(1,1)">
@@ -92,7 +92,7 @@
 																			<img src="img/q1_1.png" class="option-img">
 																		  </div>
 																		  <div class="option-caption option-caption1-1">
-																			<input type="radio" id="option1-1" data-next="2" name="fuerwen" value="selber" class="d-none">
+																			<input type="radio" id="option1-1" data-next="2" name="fuerwen" value="selber" class="d-none" onclick="loadNext()">
 																			<div class="section_items_title option-text1-1 option-text slide-text-d-view">Mich selbst</div><div class="section_items_title option-text1-1 option-text slide-text-m-view ">Mich selbst</div>
 																		<div class="items-ab">
 																			  <div class="items-ab-bottom"></div>
@@ -103,7 +103,7 @@
 																	  </div>
 																	</div>
 																	  
-																	<div class="section_items option-responses  overflow-hidden" >
+																	<div class="section_items option-responses  overflow-hidden" onclick="textShadowing(1,2)">
 																	  <div class="option option1-2 option-selector">
 																		<div class="option-response-tag">
 																		<br>
@@ -112,7 +112,7 @@
 																			<img src="img/q1_2.png" class="option-img">
 																		  </div>
 																		  <div class="option-caption option-caption1-2">
-																			<input type="radio" id="option1-2" data-next="2" name="fuerwen" value="Angehörige(r)/Bekannte(r)" class="d-none">
+																			<input type="radio" id="option1-2" data-next="2" name="fuerwen" value="Angehörige(r)/Bekannte(r)" class="d-none" onclick="loadNext()">
 																			<div class="section_items_title option-text1-2 option-text slide-text-d-view">Angehörigen</div><div class="section_items_title option-text1-2 option-text slide-text-m-view ">Angehörigen</div>
 																		<div class="items-ab">
 																			  <div class="items-ab-bottom"></div>

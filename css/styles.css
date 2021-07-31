@@ -1162,7 +1162,7 @@ span.item-text {
     margin: 0 auto;
 }
 .desk-app {
-    display: block;
+    display: contents;
 }
 .body_section{
   background-size: contain!important;
@@ -1180,32 +1180,32 @@ span.short-item {
 }
 .item .tooltiptext-two {
     font-size: 10px !important;
-    top: -101px !important;
+    top: -97px !important;
     line-height: 15px !important;
 }
 .item .tooltiptext {
     font-size: 11px;
-    top: -123px;
-    line-height: 18px;
+    top: -90px ​!important;
+    /* line-height: 18px; */
 }
 .item .tooltiptext-two::after {
     top: 85px !important;
 }
 .item .tooltiptext-three {
-    top: -92px;
+    top: -90px;
     line-height: 16px;
 }
 .item .tooltiptext-three::after {
     top: 75px !important;
 }
 .item .tooltiptext-four {
-    top: -106px !important;
+    top: -103px !important;
 }
 .item .tooltiptext-four::after {
     top: 91px !important;
 }
 .item .tooltiptext-five {
-    top: -103px !important;
+    top: -91px !important;
 }
 .item .tooltiptext-five::after {
     top: 83px !important;
@@ -1230,7 +1230,11 @@ span.short-item {
     top: 92px!important;
 }
 .item .tooltiptext-one {
-    top: -105px!important;
+    top: -86px!important;
+    width:131px !important;
+}
+.item .tooltiptext-two{
+  width: 131px !important;
 }
 }
 
