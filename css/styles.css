@@ -1179,7 +1179,7 @@ span.short-item {
     top: 101px!important;
 }
 .item .tooltiptext-two {
-    font-size: 10px !important;
+    font-size: 11px !important;
     top: -97px !important;
     line-height: 15px !important;
 }
@@ -1234,7 +1234,7 @@ span.short-item {
     width:131px !important;
 }
 .item .tooltiptext-two{
-  width: 131px !important;
+  width: 135px !important;
 }
 }
 
