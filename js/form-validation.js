@@ -44,9 +44,9 @@ function validate() {
 
   var pn = $('#phone').val().length
 
-  fn = fn == 0? Infinity: 1;
+  fn = fn == 0? Infinity: 2;
   
-  ln = ln == 0? Infinity: 1;
+  ln = ln == 0? Infinity: 2;
 
   en = en == 0? Infinity: 1;
 
@@ -54,7 +54,7 @@ function validate() {
 
   var stat = false
     
-  if(fn == 1 && fn == 1 && ln == 1 && en == 1 && pn == 1){
+  if(fn == 2 && fn == 2 && ln == 1 && en == 1 && pn == 1){
     stat = true
   }
   else{

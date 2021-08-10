@@ -2255,6 +2255,9 @@ input#email{
   .m-size{
     font-size: 13px !important;
   }
+  .newbr{
+    display: block;
+  }
 
 }
 
@@ -2292,4 +2295,10 @@ b{
     margin: 1px auto auto 10px !important
   }
 
+}
+
+@media screen and (max-width: 344px){
+  .newbr{
+    display: contents;
+  } 
 }

@@ -1013,7 +1013,7 @@ let queObj = {
   },
   37: {
     type: "form-map",
-    question: "In welcher Region suchen Sie die 24 Stunden Pflege?",
+    question: "In welcher Region suchen Sie die <span class= 'newbr'>24 Stunden Pflege?</span>",
     name: "postcode",
     inputs: [
       {
@@ -1128,6 +1128,7 @@ function popFunc() {
                   <input type="radio" id="option${s}-${parseInt(cE) + 1}" data-next="${currentElement.options[cE].next}" name="${currentElement.name}" value="${currentElement.options[cE].value}"  class="d-none" onClick="loadNext()">
                   <div class="section_items_title option-text${s}-${parseInt(cE) + 1} option-text slide-text-d-view" >${currentElement.options[cE].title}</div>`
       // s is the que and cmpare is the card order number      
+            $('head').append(`<link rel="preload" as="image" href="img/${currentElement.options[cE].image_name}" class="option-img">`)
             if(cmpare == 1 && s == 6 || cmpare == 1 && s == 28 || cmpare == 1 && s == 17 || cmpare == 1 && s == 29 ){
               newElem += `<div class="section_items_title option-text${s}-${parseInt(cE) + 1} option-text slide-text-m-view ca-text" ><span style = 'font-size:16px;'>Uneingeschränkt<span></div>` 
             }
@@ -1720,8 +1721,18 @@ $(document).ready(function(){
   $(".anchor-link").on('click', function(event) {
        event.preventDefault();
         // $(windinow).scrollTop(0,) ;
-        window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
-        $("html, body").animate({ scrollTop: 85 }, 1200);
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          window.scrollTo({ top: 0, left: 100, behavior: 'smooth' });
+          $("html, body").animate({ scrollTop: 0 }, 1200); 
+        }
+        else if (window.matchMedia('(max-width: 960px)').matches) {
+          window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
+          $("html, body").animate({ scrollTop: 140 }, 1200);  
+        }
+        else{
+          window.scrollTo({ top: 80, left: 100, behavior: 'smooth' });
+          $("html, body").animate({ scrollTop: 180 }, 1200);  
+        }
 
   });
 
@@ -1753,16 +1764,17 @@ function teee(hash) {
 
       var itemId = $(this).attr('id');
 
-      if (itemId == hash) {
+      // if (itemId == hash) {
         $(this).addClass("test");
-      } 
+      // } 
       
-      else {
-          $(this).removeClass("test");
-      }
+      // else {
+      //     $(this).removeClass("test");
+      // }
 
       if (itemId == 39){
         stat = true
+        $('.fake').css('pointer-events','auto')  
       }
   });
 }
