@@ -1764,13 +1764,13 @@ function teee(hash) {
 
       var itemId = $(this).attr('id');
 
-      // if (itemId == hash) {
+      if (itemId == hash) {
         $(this).addClass("test");
-      // } 
+      } 
       
-      // else {
-      //     $(this).removeClass("test");
-      // }
+      else {
+          $(this).removeClass("test");
+      }
 
       if (itemId == 39){
         stat = true
