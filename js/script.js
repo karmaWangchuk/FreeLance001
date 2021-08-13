@@ -1039,8 +1039,8 @@ let queObj = {
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
     colms: [
       {
-        r1: "Frau",
-        r2: "Herr",
+        // r1: "Frau",
+        // r2: "Herr",
         title: "Wer soll die Betreuungsangebote erhalten?",
         value: "",
         next: "",
@@ -1293,12 +1293,6 @@ Unser Service:<br>
 <div class="participant-header"><label class=" size19" for="que${s}-opt${cE}">${
               currentElement.colms[cE].title
             }</label></div>
-</div>
-<div class="participant-row  ">
-<div class="participant-inline "><input type="radio" name="gender" class="" value="Frau" id="sex-female" ></div>
-<div class="participant-inline"><label for="sex-female" class="">Frau</label></div>
-<div class="participant-inline"><input type="radio" name="gender" value="Herr" id="sex-male" class="valid"></div>
-<div class="participant-inline"><label for="sex-male" class="">Herr</label></div>
 </div>
 <div class="participant-row">
 <div class="participant-inline participant-col-left partnews"><input type="text" name="firstname" value="" id="first-name" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>

@@ -6,12 +6,21 @@ function validate() {
 
   jQuery.validator.addMethod("phoneGR", function(value, element) {
     // allow any non-whitespace characters as the host part
-    return /^(((((((00|\+)[ \-\/]?)|0)[1-9][0-9]{1,4})[ \-\/]{0,3}?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-\/]?))[0-9]{1,7}([ \-\/]?[0-9]{1,5})?)$/.test( value );
+    return /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/.test( value );
   }, '');
   jQuery.validator.addMethod("mailGR", function(value, element) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     // allow any non-whitespace characters as the host part
-    return value.match(mailformat)
+    var valid = value.match(mailformat)
+    var c = value.split('@')[1]
+    var status = false
+    if(valid){
+
+      if(c == "gmail.com" ||c == "yahoo.com" ||c == "hotmail.com" ||c == "aol.com") status = true
+
+    }
+
+    return status
   }, '');
 
     // Initialize form validation on the registration form.
@@ -20,7 +29,7 @@ function validate() {
       
       // Specify validation error messages
       messages: {
-		    gender :"Bitte treffen Sie eine Auswahl.",
+		    // gender :"Bitte treffen Sie eine Auswahl.",
         firstname: " ",
         lastname: " ",
         phone : " ",
@@ -53,7 +62,12 @@ function validate() {
   pn = pn == 0? Infinity: 1;
 
   var stat = false
-    
+  var nstat = true
+  
+  if(fn== 2){
+    nstat = false
+  }
+  
   if(fn == 2 && fn == 2 && ln == 1 && en == 1 && pn == 1){
     stat = true
   }
@@ -76,7 +90,7 @@ function validate() {
         minlength: fn,
       },
       lastname: {
-        required: true,
+        required: nstat,
         number:false,
         minlength: ln,
       }, 
@@ -93,13 +107,13 @@ function validate() {
       },
     }
   });
-   removePopUp()
+  //  removePopUp()
 }
-function removePopUp() {
-  setTimeout(function(){ 
-    $('#gender-error').remove();
-   }, 2000);
-}
+// function removePopUp() {
+//   setTimeout(function(){ 
+//     $('#gender-error').remove();
+//    }, 2000);
+// }
 
 window.onbeforeunload = function (e) {
   stat = localStorage.getItem('stat')
