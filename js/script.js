@@ -1,7 +1,5 @@
 
-$( document ).ready(function() {
-  setTimeout(function(){ $('#spanInfo').addClass("asa" ); }, 1000);
-});
+
 let queObj = {
     1: {
     // type: "regular",
@@ -1525,7 +1523,9 @@ function loadNext() {
   stat = false
   location.hash = "que" + nextKey + "#sli" + currentSlide;
   console.log(location.hash);  
-
+  $( document ).ready(function() {
+    setTimeout(function(){ $('#spanInfo').addClass("asa" ); }, 700);
+  });
   //hashChange(nextKey);
   // A $( document ).ready() block.
 
