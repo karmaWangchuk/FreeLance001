@@ -1295,9 +1295,9 @@ Unser Service:<br>
             }</label></div>
 </div>
 <div class="participant-row  ">
-<div class="participant-inline "><input type="radio" class="" value="Frau" id="sex-female" ></div>
+<div class="participant-inline "><input type="radio" class="" name = 'gender' value="Frau" id="sex-female" ></div>
 <div class="participant-inline"><label for="sex-female" class="">Frau</label></div>
-<div class="participant-inline"><input type="radio" value="Herr" id="sex-male" class="valid"></div>
+<div class="participant-inline"><input type="radio" name = 'gender' value="Herr" id="sex-male" class="valid"></div>
 <div class="participant-inline"><label for="sex-male" class="">Herr</label></div>
 </div>
 <div class="participant-row">
