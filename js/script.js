@@ -1,5 +1,7 @@
 $('.fake').css('display','')  
-
+$( document ).ready(function() {
+  setTimeout(function(){ $('#spanInfo').addClass("asa" ); }, 1000);
+});
 let queObj = {
     1: {
     // type: "regular",
@@ -1039,8 +1041,8 @@ let queObj = {
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
     colms: [
       {
-        // r1: "Frau",
-        // r2: "Herr",
+        r1: "Frau",
+        r2: "Herr",
         title: "Wer soll die Betreuungsangebote erhalten?",
         value: "",
         next: "",
@@ -1294,6 +1296,12 @@ Unser Service:<br>
               currentElement.colms[cE].title
             }</label></div>
 </div>
+<div class="participant-row  ">
+<div class="participant-inline "><input type="radio" class="" value="Frau" id="sex-female" ></div>
+<div class="participant-inline"><label for="sex-female" class="">Frau</label></div>
+<div class="participant-inline"><input type="radio" value="Herr" id="sex-male" class="valid"></div>
+<div class="participant-inline"><label for="sex-male" class="">Herr</label></div>
+</div>
 <div class="participant-row">
 <div class="participant-inline participant-col-left partnews"><input type="text" name="firstname" value="" id="first-name" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>
 <div class="participant-inline participant-col-right partnew"><input type="text" name="lastname" value="" id="last-name" placeholder="Nachname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="family-name" autocompletetype="family-name" aria-required="true" aria-invalid="true"></div>
@@ -1427,7 +1435,6 @@ function hashChange(hash) {
   console.log(hash);
   
 
-
     /*if(hash==15){
       questionApp.style.height =  "450px";
     }else{
@@ -1521,11 +1528,6 @@ function loadNext() {
 
   //hashChange(nextKey);
   // A $( document ).ready() block.
-$( document ).ready(function() {
-  setTimeout(function(){ $('#spanInfo').addClass("asa" ); }, 1000);
-
-
-});
 
   //loadQue(nextKey, null, 500);
 }

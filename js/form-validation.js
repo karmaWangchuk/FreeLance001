@@ -29,7 +29,7 @@ function validate() {
       
       // Specify validation error messages
       messages: {
-		    // gender :"Bitte treffen Sie eine Auswahl.",
+		    gender :"Bitte treffen Sie eine Auswahl.",
         firstname: " ",
         lastname: " ",
         phone : " ",
@@ -63,7 +63,7 @@ function validate() {
 
   var stat = false
 
-  if(fn == 2 && fn == 2 && ln == 1 && en == 1 && pn == 1){
+  if(fn == 2 && ln == 2 && en == 1 && pn == 1){
     stat = true
   }
   else{
@@ -102,13 +102,13 @@ function validate() {
       },
     }
   });
-  //  removePopUp()
+   removePopUp()
 }
-// function removePopUp() {
-//   setTimeout(function(){ 
-//     $('#gender-error').remove();
-//    }, 2000);
-// }
+function removePopUp() {
+  setTimeout(function(){ 
+    $('#gender-error').remove();
+   }, 2000);
+}
 
 window.onbeforeunload = function (e) {
   stat = localStorage.getItem('stat')
