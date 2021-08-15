@@ -24,7 +24,6 @@ function validate() {
   }, '');
 
     // Initialize form validation on the registration form.
-    // It has the name attribute "registration"
     $("form[name='send-form']").validate({
       
       // Specify validation error messages

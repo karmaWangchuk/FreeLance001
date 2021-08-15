@@ -1766,10 +1766,16 @@ function teee(hash) {
       else {
           $(this).removeClass("test");
       }
-
-      if (hash == 12) {
+      if (itemId == 23) {
+        $(this).removeClass("test");
+      } 
+      if (itemId == 36) {
+        $(this).removeClass("test");
+      } 
+      if (hash == 12 || hash == 23 || hash == 36) {
         $(this).addClass("test");
       }
+   
       if (itemId == 39){
         stat = true
         $('.fake').css('pointer-events','auto')  
