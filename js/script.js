@@ -1,4 +1,4 @@
-$('.fake').css('display','')  
+
 $( document ).ready(function() {
   setTimeout(function(){ $('#spanInfo').addClass("asa" ); }, 1000);
 });
@@ -1105,7 +1105,7 @@ function popFunc() {
         Object.keys(queObj).indexOf(s) + 1
       }" class="fly-about ht-${
         Object.keys(queObj).indexOf(s) + 1
-      } test" style="width: ${100 / qLength}%;">
+      } " style="width: ${100 / qLength}%;">
           <div class="text-center question-title fieldset-title"><!--<span id="opt_${
             Object.keys(queObj).indexOf(s) + 1
           }"></span>--> ${currentElement.question}</div>`;
@@ -1524,7 +1524,7 @@ function loadNext() {
   if (stat) currentSlide = parseInt(currentSlide + 1);
   stat = false
   location.hash = "que" + nextKey + "#sli" + currentSlide;
-  console.log(location.hash);
+  console.log(location.hash);  
 
   //hashChange(nextKey);
   // A $( document ).ready() block.
@@ -1697,7 +1697,7 @@ function movePosition(currentKey) {
     currentPosition += "%";
   }
   console.log(currentPosition + "%");
-  $(questionApp).animate({ left: currentPosition });
+  $(questionApp).animate({ left: currentPosition },'slow');
 
   console.log("set the width");
 
@@ -1760,14 +1760,16 @@ function teee(hash) {
 
       var itemId = $(this).attr('id');
 
-      if (itemId == hash) {
+      if (itemId != 12) {
         $(this).addClass("test");
       } 
-      
       else {
           $(this).removeClass("test");
       }
 
+      if (hash == 12) {
+        $(this).addClass("test");
+      }
       if (itemId == 39){
         stat = true
         $('.fake').css('pointer-events','auto')  
