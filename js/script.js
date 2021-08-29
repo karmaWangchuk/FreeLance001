@@ -1101,7 +1101,7 @@ function popFunc() {
 
       newElem += `<div id="${
         Object.keys(queObj).indexOf(s) + 1
-      }" class="fly-about ht-${
+      }" class="fly-about test ht-${
         Object.keys(queObj).indexOf(s) + 1
       } " style="width: ${100 / qLength}%;">
           <div class="text-center question-title fieldset-title"><!--<span id="opt_${
@@ -1385,11 +1385,9 @@ function hashChange(hash) {
     };
   }
 
-  setTimeout(function(){ 
-    teee(hash)
-    var height = $('.ht-'+hash).height();
-    questionApp.style.height =  height+"px";
-    }, 550);
+  teee(hash)
+  var height = $('.ht-'+hash).height();
+  questionApp.style.height =  height+"px";
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1474,8 +1472,6 @@ function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
       movePosition(currentKey);
 
       previousButton.style.display = currentKey <= 1 ? "none" : "";
-
-      spanInfo.style.display = currentKey <= 1 ? "" : "none";
 
       nextButton.style.display = currentKey >= qLength ? "none" : "";
 
@@ -1759,23 +1755,23 @@ function teee(hash) {
       //console.log($(this).attr('id'))
 
       var itemId = $(this).attr('id');
+      spanInfo.style.display = hash <= 1 ? "" : "none";
 
-      if (itemId != 12) {
+      if (itemId == hash) {
         $(this).addClass("test");
       } 
       else {
           $(this).removeClass("test");
       }
-      if (itemId == 23) {
-        $(this).removeClass("test");
-      } 
-      if (itemId == 36) {
-        $(this).removeClass("test");
-      } 
-      if (hash == 12 || hash == 23 || hash == 36) {
-        $(this).addClass("test");
-      }
-   
+      // if (itemId == 23) {
+      //   $(this).removeClass("test");
+      // } 
+      // if (itemId == 36) {
+      //   $(this).removeClass("test");
+      // } 
+      // if (hash == 12 || hash == 23 || hash == 36) {
+      //   $(this).addClass("test");
+      // }
       if (itemId == 39){
         stat = true
         $('.fake').css('pointer-events','auto')  
@@ -1784,7 +1780,7 @@ function teee(hash) {
 }
 
 function textShadowing(s,p){
-  $('.section_items_title').css('textShadow','0 -1px 13px #777')
+  // $('.section_items_title').css('textShadow','0 -1px 13px #777')
   $('.option-text'+s+'-'+p).css('textShadow','none')
   
 }

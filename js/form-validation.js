@@ -12,15 +12,8 @@ function validate() {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     // allow any non-whitespace characters as the host part
     var valid = value.match(mailformat)
-    var c = value.split('@')[1]
-    var status = false
-    if(valid){
 
-      if(c == "gmail.com" ||c == "yahoo.com" ||c == "hotmail.com" ||c == "aol.com") status = true
-
-    }
-
-    return status
+    return valid
   }, '');
 
     // Initialize form validation on the registration form.
@@ -101,6 +94,7 @@ function validate() {
       },
     }
   });
+  $("form[name='send-form']").validate().resetForm();
    removePopUp()
 }
 function removePopUp() {
