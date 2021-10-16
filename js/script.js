@@ -1386,8 +1386,11 @@ function hashChange(hash) {
   }
 
   teee(hash)
-  var height = $('.ht-'+hash).height();
-  questionApp.style.height =  height+"px";
+  // setTimeout(() => {
+  //   var height = $('.ht-'+hash).height();
+  //   questionApp.style.height =  height+"px";    
+  // }, 100);
+
   //console.log($('.ht-'+hash).height());
   //var height = $('.ht-'+hash).height();
   //questionApp.style.height =  height+"px";
@@ -1639,7 +1642,7 @@ window.onhashchange = function (e) {
   var currentQue = location.hash.split('#');
   console.log(currentQue);
 
-  if (initiated) loadQue(parseInt(currentQue[1].replace(/\D+/gim, "")), null, 500);
+  if (initiated) loadQue(parseInt(currentQue[1].replace(/\D+/gim, "")), null, 10);
   
   setCurrentSlide(parseInt(currentQue[2].replace(/\D+/gim, "")));
 
@@ -1705,7 +1708,28 @@ function movePosition(currentKey) {
   //currentSlide = parseInt(currentSlide + 1);
   //progressBar.style.width = currentSlide / maxProgressLength * 100 + "%"
 }
+// ----------------------------cookie consent --------------------------------------
+const cookieStorage = {
 
+  getItem: (key) => {
+      const cookies = document.cookie
+        .split(":")
+        .map(cookie => cookie.split('='))
+        .reduce((acc,[key,value]) => ({...acc,[key.trim()]:value}),{});
+      return cookies[key]; 
+  },
+
+  setItem: (key, value) => {
+    document.cookie = `${key}=$${value}`;
+  }
+
+}
+
+const concentName = "cookielawinfo-checkbox-functional"
+
+const showPopUp = () => cookieStorage.getItem(concentName)
+
+const saveToStorage = () => cookieStorage.setItem(concentName,true) 
 
 $(document).ready(function(){
 
@@ -1727,16 +1751,15 @@ $(document).ready(function(){
         }
 
   });
+// hide cookie------------------------------
+  if(showPopUp()){
 
-  //if (window.history && window.history.backward) {
-    // window.onpushstate = function() {
-    //   currentSlide = parseInt(currentSlide - 1);
-    //   progressBar.style.width = currentSlide / maxProgressLength * 100 + "%"
-    // }
-  //}
-    
+    $('.cookie').hide()
+  
+  }
+  
+
 });
-
 
 function inputEvent() {
 
@@ -1759,19 +1782,18 @@ function teee(hash) {
 
       if (itemId == hash) {
         $(this).addClass("test");
+        $(this).removeClass("moveleft");
+        var questionApp = document.getElementById('questionApp');
+        hash = localStorage.getItem('hash')
+        var height = $('.ht-'+hash).height();
+        questionApp.style.height =  height+"px";
+      
       } 
       else {
-          $(this).removeClass("test");
+        $(this).addClass("moveleft");
+        $(this).removeClass("test");
       }
-      // if (itemId == 23) {
-      //   $(this).removeClass("test");
-      // } 
-      // if (itemId == 36) {
-      //   $(this).removeClass("test");
-      // } 
-      // if (hash == 12 || hash == 23 || hash == 36) {
-      //   $(this).addClass("test");
-      // }
+
       if (itemId == 39){
         stat = true
         $('.fake').css('pointer-events','auto')  
